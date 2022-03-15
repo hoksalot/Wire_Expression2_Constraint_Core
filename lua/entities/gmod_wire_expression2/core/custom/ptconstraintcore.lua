@@ -47,6 +47,7 @@ end
 local function valid2constraint( self, ent )
 	
 	if not ent then return false end
+	if ent:IsWorld() then return true end --(isOwner wouldn't allow it)
 	if ent:IsPlayer() then return false end
 	if not constraint.CanConstrain( ent, 0 ) then return false end
 	if not isOwner( self, ent ) then return false end
